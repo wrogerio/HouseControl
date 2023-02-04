@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HouseControl.UI", "HouseControl.UI\HouseControl.UI.csproj", "{F4C98286-394D-463E-B330-E0B92F8F530F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HouseControl.Domain", "HouseControl.Domain\HouseControl.Domain.csproj", "{FEB8A6B0-7A22-4357-AA10-4367A037A774}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01_Front", "01_Front", "{F29DDD0B-E06C-49CC-BF14-6BBCEA003116}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02_Domain", "02_Domain", "{2C6B4EF6-6A31-4033-A935-9CE12F64BCC2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03_Infra", "03_Infra", "{0737DDF2-7859-4F6E-874F-DF474CCCBED6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HouseControl.Infra", "HouseControl.Infra\HouseControl.Infra.csproj", "{124E6DD9-7C91-4859-8D87-AC1B90930387}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04_Helper", "04_Helper", "{537C1A42-A330-4782-AFF6-28CCBA79B882}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HouseControl.Helper", "HouseControl.Helper\HouseControl.Helper.csproj", "{E30780F6-5684-4972-A57C-22A44A53C4AE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4C98286-394D-463E-B330-E0B92F8F530F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4C98286-394D-463E-B330-E0B92F8F530F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4C98286-394D-463E-B330-E0B92F8F530F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4C98286-394D-463E-B330-E0B92F8F530F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEB8A6B0-7A22-4357-AA10-4367A037A774}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEB8A6B0-7A22-4357-AA10-4367A037A774}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEB8A6B0-7A22-4357-AA10-4367A037A774}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEB8A6B0-7A22-4357-AA10-4367A037A774}.Release|Any CPU.Build.0 = Release|Any CPU
+		{124E6DD9-7C91-4859-8D87-AC1B90930387}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{124E6DD9-7C91-4859-8D87-AC1B90930387}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{124E6DD9-7C91-4859-8D87-AC1B90930387}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{124E6DD9-7C91-4859-8D87-AC1B90930387}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E30780F6-5684-4972-A57C-22A44A53C4AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E30780F6-5684-4972-A57C-22A44A53C4AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E30780F6-5684-4972-A57C-22A44A53C4AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E30780F6-5684-4972-A57C-22A44A53C4AE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F4C98286-394D-463E-B330-E0B92F8F530F} = {F29DDD0B-E06C-49CC-BF14-6BBCEA003116}
+		{FEB8A6B0-7A22-4357-AA10-4367A037A774} = {2C6B4EF6-6A31-4033-A935-9CE12F64BCC2}
+		{124E6DD9-7C91-4859-8D87-AC1B90930387} = {0737DDF2-7859-4F6E-874F-DF474CCCBED6}
+		{E30780F6-5684-4972-A57C-22A44A53C4AE} = {537C1A42-A330-4782-AFF6-28CCBA79B882}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {77CD6ECD-9BB2-48F2-9E34-5B23C8918077}
+	EndGlobalSection
+EndGlobal

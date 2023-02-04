@@ -1,0 +1,42 @@
+﻿@model HouseControl.UI.Models.HeaderViewModel
+
+@{
+    Model.Title = Model.Title == "" ? "Vivian Controle" : Model.Title;
+
+    if (Model.ButtonText == "Cadastrar")
+    {
+        Model.ButtonColor = "btn-outline-primary";
+        Model.ButtonIcon = "far fa-cart-plus";
+        Model.ActionToGo = "Cadastrar";
+    }
+    else if (Model.ButtonText == "Editar")
+    {
+        Model.ButtonColor = "btn-outline-warning";
+        Model.ButtonIcon = "fad fa-edit";
+        Model.ActionToGo = "Alterar";
+    }
+    else if (Model.ButtonText == "Excluir")
+    {
+        Model.ButtonColor = "btn-outline-danger";
+        Model.ButtonIcon = "far fa-trash-alt";
+        Model.ActionToGo = "Remover";
+    }
+    else if (Model.ButtonText == "Voltar")
+    {
+        Model.ButtonColor = "btn-outline-secondary";
+        Model.ButtonIcon = "fad fa-backward";
+        Model.ActionToGo = "Index";
+    }
+}
+
+<div class="row mb-2">
+    <div class="col">
+        <div class="d-flex align-items-center justify-content-between border-bottom pb-2">
+            <h2>@Model.Title</h2>
+            <a class="btn @Model.ButtonColor py-2" asp-controller="@Model.ControllerToGo" asp-action="@Model.ActionToGo">
+                <i class="@Model.ButtonIcon me-2"></i>
+                @Model.ButtonText
+            </a>
+        </div>
+    </div>
+</div>

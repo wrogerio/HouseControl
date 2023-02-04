@@ -1,0 +1,33 @@
+﻿@{
+    var header = new HeaderViewModel { Title = "Remover Categoria", ButtonText = "Voltar", ControllerToGo = "Categorias" };
+}
+@model HouseControl.Domain.Entities.Categoria
+
+<partial name="_header" model="@header" />
+
+<form asp-action="Remover" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="row mb-2">
+        <div class="col">
+            <div class="form-group">
+                <label>Nome da Categoria</label>
+                <input class="form-control form-control-lg" asp-for="Nome" disabled />
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <div class="col">
+            <button type="submit" class="btn btn-outline-danger me-2">
+                <i class="fad fa-trash me-2"></i>
+                Remover
+            </button>
+
+            <a asp-action="Index" class="btn btn-outline-secondary">
+                <i class="fad fa-backward"></i>
+                Voltar
+            </a>
+        </div>
+    </div>
+
+</form>
