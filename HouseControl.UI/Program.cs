@@ -1,6 +1,7 @@
 using HouseControl.Infra.Context;
 using HouseControl.Infra.Interfaces;
 using HouseControl.Infra.Repositories;
+using System.Globalization;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,22 @@ builder.Services.AddControllersWithViews().AddJsonOptions(x => x.JsonSerializerO
 builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 builder.Services.AddScoped<ILancamentoRepository, LancamentoRepository>();
 builder.Services.AddDbContext<HouseContext>();
+
+// change locale to pt-br
+var cultureInfo = new CultureInfo("pt-BR");
+cultureInfo.NumberFormat.CurrencySymbol = "R$";
+cultureInfo.NumberFormat.CurrencyDecimalSeparator = ",";
+cultureInfo.NumberFormat.CurrencyGroupSeparator = ".";
+cultureInfo.NumberFormat.NumberDecimalSeparator = ",";
+cultureInfo.NumberFormat.NumberGroupSeparator = ".";
+CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
+
+// apply locale
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    options.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture(cultureInfo);
+});
 
 var app = builder.Build();
 
