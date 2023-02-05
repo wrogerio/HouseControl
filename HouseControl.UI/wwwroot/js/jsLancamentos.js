@@ -49,7 +49,7 @@ function loadCategorias() {
                         item.mesNome,
                         item.quinzena,
                         item.categoria,
-                        item.valor,
+                        item.valor.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }),
                         item.parcela,
                         item.totalParcelas,
                         item.id
