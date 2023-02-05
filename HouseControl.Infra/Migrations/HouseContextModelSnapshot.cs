@@ -55,9 +55,6 @@ namespace HouseControl.Infra.Migrations
                     b.Property<DateTime>("DtLancamento")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("IsParcelado")
-                        .HasColumnType("bit");
-
                     b.Property<int>("Parcela")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")

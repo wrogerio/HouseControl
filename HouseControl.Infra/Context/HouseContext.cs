@@ -20,5 +20,6 @@ public class HouseContext : DbContext
     {
         base.OnConfiguring(optionsBuilder);
         optionsBuilder.UseSqlServer(SharedConstants.VivianDbConnectionString);
+        optionsBuilder.UseLazyLoadingProxies();
     }
 }

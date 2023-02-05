@@ -30,8 +30,7 @@ namespace HouseControl.Infra.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     DtLancamento = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Descricao = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
-                    Valor = table.Column<decimal>(type: "DECIMAL(18,0)", nullable: false),
-                    IsParcelado = table.Column<bool>(type: "bit", nullable: false),
+                    Valor = table.Column<decimal>(type: "DECIMAL(18,2)", nullable: false),
                     Parcela = table.Column<int>(type: "int", nullable: false, defaultValue: 0),
                     TotalParcelas = table.Column<int>(type: "int", nullable: false, defaultValue: 0),
                     CategoriaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)

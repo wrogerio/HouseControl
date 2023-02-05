@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HouseControl.Infra.Migrations
 {
     [DbContext(typeof(HouseContext))]
-    [Migration("20230204115422_m0")]
+    [Migration("20230204232553_m0")]
     partial class m0
     {
         /// <inheritdoc />
@@ -57,9 +57,6 @@ namespace HouseControl.Infra.Migrations
 
                     b.Property<DateTime>("DtLancamento")
                         .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsParcelado")
-                        .HasColumnType("bit");
 
                     b.Property<int>("Parcela")
                         .ValueGeneratedOnAdd()

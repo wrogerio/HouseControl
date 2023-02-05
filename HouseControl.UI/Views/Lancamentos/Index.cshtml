@@ -1,1 +1,15 @@
-﻿
+﻿@{
+    var header = new HeaderViewModel { Title = "Lista de Lançamentos", ButtonText = "Cadastrar", ControllerToGo = "Lancamentos" };
+}
+
+<partial name="_header" model="@header" />
+
+<div class="row">
+    <div class="col">
+        <div id="tableLancamentos"></div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/jsLancamentos.js"></script>
+}

@@ -89,7 +89,7 @@ namespace HouseControl.UI.Controllers
         {
             var categorias = _repository.GetAllAsync().Result.ToList().OrderBy(x => x.Nome);
 
-            return Json(categorias, new JsonSerializerOptions() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
+            return Json(categorias);
         }
     }
 }
