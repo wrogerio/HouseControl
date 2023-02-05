@@ -24,23 +24,33 @@ public class CategoriaRepository : ICategoriaRepository
         var categoria = await _context.Categorias.FirstOrDefaultAsync(x => x.Id == id);
 
         if (categoria == null)
-            throw new Exception("Categoria não encontrada");
+            return new Categoria();
 
         return categoria;
     }
 
-    public async Task<Categoria> CreateCategoriaAsync(Categoria categiria)
+    public async Task<Categoria> GetByNameAsync(string nome)
     {
-        await _context.Categorias.AddAsync(categiria);
-        await _context.SaveChangesAsync();
-        return categiria;
+        var categoria = await _context.Categorias.Where(x => x.Nome == nome).FirstOrDefaultAsync();
+
+        if (categoria == null)
+            return new Categoria();
+
+        return categoria;
     }
 
-    public Categoria UpdateCategoriaAsync(Categoria categiria)
+    public async Task<Categoria> CreateCategoriaAsync(Categoria categoria)
     {
-        _context.Categorias.Update(categiria);
+        await _context.Categorias.AddAsync(categoria);
+        await _context.SaveChangesAsync();
+        return categoria;
+    }
+
+    public Categoria UpdateCategoriaAsync(Categoria categoria)
+    {
+        _context.Categorias.Update(categoria);
         _context.SaveChanges();
-        return categiria;
+        return categoria;
     }
 
     public async Task<bool> DeleteCategoria(Guid id)
@@ -53,4 +63,6 @@ public class CategoriaRepository : ICategoriaRepository
         await _context.SaveChangesAsync();
         return true;
     }
+
+    
 }

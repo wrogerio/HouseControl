@@ -31,7 +31,7 @@ namespace HouseControl.UI.Controllers
         {
             ViewData["title"] = "Cadastrar Lancamento";
             ViewBag.header = new HeaderViewModel { Title = "Cadastrar Lancamento" };
-            ViewBag.categorias = new SelectList(_categoriaRepository.GetAllAsync().Result.ToList(), "Id", "Nome");
+            ViewBag.categorias = new SelectList(_categoriaRepository.GetAllAsync().Result.ToList().OrderBy(x => x.Nome), "Id", "Nome");
             ViewBag.Erro = null;
 
             return View();
@@ -47,7 +47,7 @@ namespace HouseControl.UI.Controllers
             }
 
             ViewBag.Erro = "erro";
-            ViewBag.categorias = new SelectList(_categoriaRepository.GetAllAsync().Result.ToList(), "Id", "Nome", lancamento.CategoriaId);
+            ViewBag.categorias = new SelectList(_categoriaRepository.GetAllAsync().Result.ToList().OrderBy(x => x.Nome), "Id", "Nome", lancamento.CategoriaId);
             return View(lancamento);
         }
 
@@ -56,7 +56,7 @@ namespace HouseControl.UI.Controllers
         {
             ViewData["title"] = "Alterar Lancamento";
             ViewBag.header = new HeaderViewModel { Title = "Alterar Lancamento" };
-            ViewBag.categorias = new SelectList(_categoriaRepository.GetAllAsync().Result.ToList(), "Id", "Nome");
+            ViewBag.categorias = new SelectList(_categoriaRepository.GetAllAsync().Result.ToList().OrderBy(x => x.Nome), "Id", "Nome");
 
             var lancamento = await _lancamentoRepository.GetByIdAsync(id);
 
@@ -80,7 +80,7 @@ namespace HouseControl.UI.Controllers
         {
             ViewData["title"] = "Alterar Lancamento";
             ViewBag.header = new HeaderViewModel { Title = "Alterar Lancamento" };
-            ViewBag.categorias = new SelectList(_categoriaRepository.GetAllAsync().Result.ToList(), "Id", "Nome");
+            ViewBag.categorias = new SelectList(_categoriaRepository.GetAllAsync().Result.ToList().OrderBy(x => x.Nome), "Id", "Nome");
 
             var _lanc = await _lancamentoRepository.GetByIdAsync(id);
 

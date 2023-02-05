@@ -1,0 +1,15 @@
+﻿@model HouseControl.UI.Models.ErrorViewModel
+
+<div class="row">
+    <div class="col">
+        <div class="d-flex align-items-center justify-content-center">
+            <div class="text-center">
+                <h2 class="fs-3"> <span class="text-danger me-2">Opps!</span>@Model.Titulo</h2>
+                <p class="lead">
+                    @Model.Mensagem.
+                  </p>
+                <a asp-action="@Model.ActionName" asp-controller="@Model.ControllerName" class="btn btn-primary">🏠 Voltar</a>
+            </div>
+        </div>
+    </div>
+</div>

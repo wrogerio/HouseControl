@@ -2,6 +2,7 @@
 using HouseControl.Infra.Interfaces;
 using HouseControl.UI.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 using System.Text.Json;
 
 namespace HouseControl.UI.Controllers
@@ -37,6 +38,17 @@ namespace HouseControl.UI.Controllers
         {
             if (ModelState.IsValid)
             {
+                var _categFind = await _repository.GetByNameAsync(categoria.Nome);
+                if (_categFind.Nome != "") {
+                    var erroModel = new ErrorViewModel {
+                        ActionName = "Cadastrar",
+                        ControllerName = "Categorias",
+                        Mensagem = "Categoria já cadastrada",
+                        Titulo = "Erro ao cadastrar categoria"
+                    };
+                    return RedirectToAction("Error", erroModel);
+                }
+
                 await _repository.CreateCategoriaAsync(categoria);
                 return RedirectToAction("Index");
             }
@@ -83,6 +95,12 @@ namespace HouseControl.UI.Controllers
         {
             await _repository.DeleteCategoria(categoria.Id);
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult Error(ErrorViewModel erroModel)
+        {
+            return View(erroModel);
         }
 
         public JsonResult GetCategorias()
