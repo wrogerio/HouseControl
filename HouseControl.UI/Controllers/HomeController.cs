@@ -28,12 +28,13 @@ namespace HouseControl.UI.Controllers
 
             dynamic ret = new List<ExpandoObject>();
 
+            var lancamentos = lancamentoRepository.GetAllAsync().Result.Where(x => x.DtLancamento.Month == int.Parse(mes) && x.DtLancamento.Year == int.Parse(ano)).ToList().OrderBy(x => x.Categoria.Nome);
+            var categorias = lancamentos.Select(x => x.Categoria?.Nome).Distinct().ToList();
+
             dynamic _item = new ExpandoObject();
             _item.mes = mes;
             _item.ano = ano;
-
-            var lancamentos = lancamentoRepository.GetAllAsync().Result.Where(x => x.DtLancamento.Month == int.Parse(mes) && x.DtLancamento.Year == int.Parse(ano)).ToList().OrderBy(x => x.Categoria.Nome);
-            var categorias = lancamentos.Select(x => x.Categoria?.Nome).Distinct().ToList();
+            _item.total = lancamentos.Sum(x => x.Valor);
 
             foreach (var categ in categorias)
             {
@@ -42,10 +43,10 @@ namespace HouseControl.UI.Controllers
                 dynamic _obj = new ExpandoObject();
                 _obj.categoria = categ;
                 _obj.valor = _lanc.Sum(x => x.Valor);
+                _obj.porcentagem = _obj.valor / _item.total * 100;
                 ret.Add(_obj);
             }
 
-            _item.total = lancamentos.Sum(x => x.Valor);
             _item.dados = ret;
             return Json(_item);
         }

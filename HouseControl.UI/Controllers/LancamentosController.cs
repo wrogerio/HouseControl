@@ -97,7 +97,7 @@ namespace HouseControl.UI.Controllers
         public JsonResult GetLancamentos()
         {
             List<ExpandoObject> listaRetorno = new List<ExpandoObject>();
-            var lancamentos = _lancamentoRepository.GetAllAsync().Result.ToList().OrderBy(x => x.DtLancamento);
+            var lancamentos = _lancamentoRepository.GetAllAsync().Result.ToList().OrderByDescending(x => x.DtLancamento);
 
             foreach (var item in lancamentos)
             {
