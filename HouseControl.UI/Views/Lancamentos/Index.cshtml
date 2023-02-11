@@ -1,12 +1,43 @@
 ﻿@{
-    var header = new HeaderViewModel { Title = "Lista de Lançamentos", ButtonText = "Cadastrar", ControllerToGo = "Lancamentos" };
+    var header = new HeaderViewModel { Title = "Lista", ButtonText = "Cadastrar", ControllerToGo = "Lancamentos" };
 }
 
 <partial name="_header" model="@header" />
 
 <div class="row">
     <div class="col">
-        <div id="tableLancamentos"></div>
+        <table class="table table-sm table-bordered">
+            <thead>
+                <tr>
+                    <th class="">Data</th>
+                    <th class="d-none d-sm-table-cell">Ano</th>
+                    <th class="d-none d-sm-table-cell">Mes</th>
+                    <th>Categoria</th>
+                    <th>Valor</th>
+                    <th class="d-none d-sm-table-cell">Parcela</th>
+                    <th class="d-none d-sm-table-cell">Parcelas</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ViewBag.lista)
+                {
+                    <tr>
+                        <td style="width: 100px">@item.dtLancamento</td>
+                        <td class="d-none d-sm-table-cell" style="width: 80px">@item.ano</td>
+                        <td class="d-none d-sm-table-cell" style="width: 80px">@item.mes</td>
+                        <td>@item.categoria</td>
+                        <td style="width: 100px">@item.valor</td>
+                        <td class="d-none d-sm-table-cell" style="width: 100px">@item.parcela</td>
+                        <td class="d-none d-sm-table-cell" style="width: 100px">@item.totalParcelas</td>
+                        <td class="text-center">
+                            <a asp-action="Alterar" asp-route-id="@item.id"><i class="fad fa-edit me-2"></i></a>
+                            <a asp-action="Remover" asp-route-id="@item.id"><i class="fad fa-trash"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
 </div>
 

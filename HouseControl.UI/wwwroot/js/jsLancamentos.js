@@ -17,7 +17,7 @@
 function loadCategorias() {
     const grid = new gridjs.Grid({
         columns: [
-            { name: 'Data', width: "30px" },
+            { name: 'Data', width: "30px",  },
             { name: 'Ano', width: "30px" },
             { name: 'Mes', width: "30px" },
             { name: 'Quinzena', width: "30px" },

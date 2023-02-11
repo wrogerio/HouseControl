@@ -29,7 +29,7 @@ function loadData() {
 
             var _html = _dataList.map(x => {
                 return `
-                    <div class="col-2">
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
                         <div class="card">
                             <div class="card-header p-2 m-0 text-center">
                                 <h4 class="m-0">${x.categoria}</h4>

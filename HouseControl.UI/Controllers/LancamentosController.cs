@@ -23,6 +23,8 @@ namespace HouseControl.UI.Controllers
         public IActionResult Index()
         {
             ViewData["title"] = "Lançamentos";
+            List<ExpandoObject> listaRetorno = GetLancamentosList();
+            ViewBag.lista = listaRetorno;
             return View();
         }
 
@@ -96,6 +98,13 @@ namespace HouseControl.UI.Controllers
 
         public JsonResult GetLancamentos()
         {
+            List<ExpandoObject> listaRetorno = GetLancamentosList();
+
+            return Json(listaRetorno);
+        }
+
+        private List<ExpandoObject> GetLancamentosList()
+        {
             List<ExpandoObject> listaRetorno = new List<ExpandoObject>();
             var lancamentos = _lancamentoRepository.GetAllAsync().Result.ToList().OrderByDescending(x => x.DtLancamento);
 
@@ -119,7 +128,7 @@ namespace HouseControl.UI.Controllers
                 listaRetorno.Add(_lanc);
             }
 
-            return Json(listaRetorno);
+            return listaRetorno;
         }
     }
 }
