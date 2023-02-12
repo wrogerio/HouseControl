@@ -9,39 +9,45 @@
     <input type="hidden" asp-for="Id" />
 
     <div class="row mb-2">
-        <div class="col-12 col-xl-4">
-            <div class="form-group">
-                <label>Nome da Categoria</label>
-                <select class="form-control form-control-lg" asp-for="CategoriaId" asp-items="(SelectList)@ViewBag.categorias" autofocus>
-                    <option value="">Selecione</option>
-                </select>
+            <div class="col-12 col-xl-6">
+                <div class="form-group">
+                    <label>Nome da Categoria</label>
+                    <select class="form-control form-control-lg" asp-for="CategoriaId" asp-items="(SelectList)@ViewBag.categorias" autofocus>
+                        <option value="">Selecione</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-12 col-xl-6">
+                <div class="form-group">
+                    <label>Descrição</label>
+                    <input class="form-control form-control-lg" asp-for="Descricao"/>
+                </div>
+            </div>
+            <div class="col-12 col-xl-3">
+                <div class="form-group">
+                    <label>Data</label>
+                    <input class="form-control form-control-lg" asp-for="DtLancamento"/>
+                </div>
+            </div>
+            <div class="col-12 col-xl-3">
+                <div class="form-group">
+                    <label>Valor R$</label>
+                    <input class="form-control form-control-lg" asp-for="Valor"/>
+                </div>
+            </div>
+            <div class="col-12 col-xl-3">
+                <div class="form-group">
+                    <label>Parcela</label>
+                    <input class="form-control form-control-lg" asp-for="Parcela" value="0"/>
+                </div>
+            </div>
+            <div class="col-12 col-xl-3">
+                <div class="form-group">
+                    <label>Total de Parcelas</label>
+                    <input class="form-control form-control-lg" asp-for="TotalParcelas" value="0"/>
+                </div>
             </div>
         </div>
-        <div class="col-12 col-lg-3 col-xl-2">
-            <div class="form-group">
-                <label>Data</label>
-                <input class="form-control form-control-lg" asp-for="DtLancamento"  />
-            </div>
-        </div>
-        <div class="col-12 col-lg-3 col-xl-2">
-            <div class="form-group">
-                <label>Valor R$</label>
-                <input class="form-control form-control-lg" asp-for="Valor" />
-            </div>
-        </div>
-        <div class="col-12 col-lg-3 col-xl-2">
-            <div class="form-group">
-                <label>Parcela</label>
-                <input class="form-control form-control-lg" asp-for="Parcela" value="0" />
-            </div>
-        </div>
-        <div class="col-12 col-lg-3 col-xl-2">
-            <div class="form-group">
-                <label>Total de Parcelas</label>
-                <input class="form-control form-control-lg" asp-for="TotalParcelas" value="0" />
-            </div>
-        </div>
-    </div>
 
     <div class="row mb-2">
         <div class="col">

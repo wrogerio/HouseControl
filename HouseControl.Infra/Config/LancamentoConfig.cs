@@ -10,6 +10,9 @@ public class LancamentoConfig : IEntityTypeConfiguration<Lancamento>
     {
         builder.HasKey(x => x.Id);
         builder.Property(x => x.Id).ValueGeneratedOnAdd();
+        
+        builder.Property(x => x.DtLancamento).IsRequired();
+        builder.Property(x => x.Descricao).HasMaxLength(200);
 
         builder.Property(x => x.TotalParcelas).HasDefaultValue(0);
         builder.Property(x => x.Parcela).HasDefaultValue(0);

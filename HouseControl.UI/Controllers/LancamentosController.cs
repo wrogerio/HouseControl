@@ -123,6 +123,7 @@ namespace HouseControl.UI.Controllers
                 _lanc.categoria = item.Categoria?.Nome;
                 _lanc.categoriaId = item.CategoriaId;
                 _lanc.parcela = item.Parcela;
+                _lanc.descricao = item.Descricao.Trim();
                 _lanc.totalParcelas = item.TotalParcelas;
 
                 listaRetorno.Add(_lanc);
