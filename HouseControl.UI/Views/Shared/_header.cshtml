@@ -3,29 +3,33 @@
 @{
     Model.Title = Model.Title == "" ? "Vivian Controle" : Model.Title;
 
-    if (Model.ButtonText == "Cadastrar")
+    if (Model.ButtonText == "Nova" || Model.ButtonText == "Novo")
     {
         Model.ButtonColor = "btn-outline-primary";
         Model.ButtonIcon = "far fa-cart-plus";
         Model.ActionToGo = "Cadastrar";
+        Model.AccessKey = "n";
     }
     else if (Model.ButtonText == "Editar")
     {
         Model.ButtonColor = "btn-outline-warning";
         Model.ButtonIcon = "fad fa-edit";
         Model.ActionToGo = "Alterar";
+        Model.AccessKey = "e";
     }
-    else if (Model.ButtonText == "Excluir")
+    else if (Model.ButtonText == "Remover")
     {
         Model.ButtonColor = "btn-outline-danger";
         Model.ButtonIcon = "far fa-trash-alt";
         Model.ActionToGo = "Remover";
+        Model.AccessKey = "r";
     }
     else if (Model.ButtonText == "Voltar")
     {
         Model.ButtonColor = "btn-outline-secondary";
         Model.ButtonIcon = "fad fa-backward";
         Model.ActionToGo = "Index";
+        Model.AccessKey = "v";
     }
 }
 
@@ -33,7 +37,7 @@
     <div class="col">
         <div class="d-flex align-items-center justify-content-between border-bottom pb-2">
             <h2>@Model.Title</h2>
-            <a class="btn @Model.ButtonColor py-2" asp-controller="@Model.ControllerToGo" asp-action="@Model.ActionToGo" accesskey="n">
+            <a class="btn @Model.ButtonColor py-2" asp-controller="@Model.ControllerToGo" asp-action="@Model.ActionToGo" accesskey="@Model.AccessKey">
                 <i class="@Model.ButtonIcon me-2"></i>
                 @Model.ButtonText
             </a>
