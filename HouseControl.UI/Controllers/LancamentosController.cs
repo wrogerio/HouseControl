@@ -25,6 +25,7 @@ namespace HouseControl.UI.Controllers
             ViewData["title"] = "Lançamentos";
             List<ExpandoObject> listaRetorno = GetLancamentosList();
             ViewBag.lista = listaRetorno;
+
             return View();
         }
 
@@ -36,7 +37,9 @@ namespace HouseControl.UI.Controllers
             ViewBag.categorias = new SelectList(_categoriaRepository.GetAllAsync().Result.ToList().OrderBy(x => x.Nome), "Id", "Nome");
             ViewBag.Erro = null;
 
-            return View();
+            var lanc = new Lancamento();
+            lanc.DtLancamento = DateTime.Now;
+            return View(lanc);
         }
 
         [HttpPost]
